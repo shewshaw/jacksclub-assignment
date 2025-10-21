@@ -4,7 +4,10 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:list": "AWS_ACCESS_KEY_ID=fake AWS_SECRET_ACCESS_KEY=fake AWS_REGION=ap-south-1 aws dynamodb list-tables --endpoint-url http://localhost:8000",
+    "db:scan:wallets": "AWS_ACCESS_KEY_ID=fake AWS_SECRET_ACCESS_KEY=fake AWS_REGION=ap-south-1 aws dynamodb scan --table-name wallets --endpoint-url http://localhost:8000",
+    "db:scan:transactions": "AWS_ACCESS_KEY_ID=fake AWS_SECRET_ACCESS_KEY=fake AWS_REGION=ap-south-1 aws dynamodb scan --table-name transactions --endpoint-url http://localhost:8000"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +23,6 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/node": "^24.8.1"
+    "@types/node": "^24.9.1"
   }
 }

@@ -5,21 +5,36 @@ A simple wallet service built with Node.js, Express, and AWS DynamoDB for managi
 ## Prerequisites
 
 - Node.js (v16 or higher)
-- AWS DynamoDB Local (running on localhost:8000)
+- AWS DynamoDB Local (running on localhost:8000) OR Docker & Docker Compose
 
 ## Setup
+
+### Option 1: Using Docker Compose (Recommended)
 
 1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start DynamoDB Local on port 8000
+2. Start DynamoDB Local using Docker Compose:
+```bash
+docker-compose up -d
+```
+
+### Option 2: Manual DynamoDB Local Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start DynamoDB Local on port 8000 manually
 
 3. Create tables (run once):
 ```bash
 npx ts-node src/config/createTable.ts
 ```
+
 4. Create .env file with the following:
 
 ```
@@ -37,6 +52,12 @@ or
 ```bash
 npx ts-node src/server.ts
 ```
+
+## Docker Commands
+
+- Start DynamoDB Local: `docker-compose up -d`
+- Stop DynamoDB Local: `docker-compose down`
+- View logs: `docker-compose logs -f dynamodb`
 
 Server runs on `http://localhost:3000`
 
